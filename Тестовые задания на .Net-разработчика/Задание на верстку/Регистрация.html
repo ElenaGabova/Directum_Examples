@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://localhost:44300/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="./Главная страница_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./Главная страница_files/bootstrap-icons.css">
+    <link rel="stylesheet" href="./Главная страница_files/site.css">
+<style id="inert-style">
+[inert] {
+  pointer-events: none;
+  cursor: default;
+}
+
+[inert], [inert] * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+</style></head>
+<body>
+  
+<div class="content">
+<nav class="navbar navbar-expand-sm fixed-top" style="background-color:#17A2B8">
+  <div class="container">
+    <button class="navbar-toggler"  style="color:orange" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    </button>
+    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text" style="color:white">О мероприятии </a>
+                        </li>
+                        <li>
+                             <a class="nav-link text" style="color:white" data-bs-toggle="modal" data-bs-target="#exampleModal">Регистрация</a>
+                        </li>
+                         <li>
+                               <a class="nav-link text" style="color:white">Стоимость участия</a>
+                        </li>  
+                         <li>
+                            <a class="nav-link text" style="color:white">Спикеры</a>
+                         </li>  
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right mr-auto">
+                            <div class="dropdown show">
+                                 <li class="nav-item"> 
+                                    <div class="dropdown-menu" area-labelledby="navbarDropdownMenuLink">
+                                       <a class="dropdown-item">О мероприятии </a>
+                                       <a class="dropdown-item"  href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal">Регистрация</a>
+                                       <a class="dropdown-item">Стоимость участия</a>
+                                       <a class="dropdown-item">Спикеры</a>
+                                    </div>
+                                  </li>
+                            </div>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
+<br>
+ <div class="d-flex justify-content-center align-items-center">
+    <div class="card-body" >
+          <input type="hidden"  asp-for="ReturnUrl"/>
+           <div class="row">
+              <div class="col-md-4" > 
+			  <H1 style="color: #9FA3AB;font-family: 'Roboto';font-style: normal;font-weight: 300;font-size: 26px;line-height: 27px;align:center">Регистрация</H1>
+                    <br />
+                    <div class="form-group">
+                       <input type="text" asp-for="UserName"  class="form-control" placeholder="ФИО"/>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                       <input type="text" asp-for="Password"  class="form-control" placeholder="Емайл"/>
+                    </div>
+                    <br />
+                   <br /> 
+				     <a class="btn btn-primary" style="background:#2F418A;color: #FFFFFF" role="button">Регистрация</a>
+
+               </div>
+               </div>
+            </div>
+            <br /> 
+ 
+</div>
+</div>
+    <table>
+       
+      <script src="./Главная страница_files/jquery.min.js"></script>
+    <script src="./Главная страница_files/bootstrap.bundle.min.js"></script>
+    <script src="./Главная страница_files/site.js"></script>
+    <script src="./Главная страница_files/jquery.validate.min.js"></script>
+<script src="./Главная страница_files/jquery.validate.unobtrusive.min.js"></script>
+
+    
+
+<!-- Visual Studio Browser Link -->
+<script type="text/javascript" src="./Главная страница_files/browserLink" async="async" id="__browserLink_initializationData" data-requestid="99c2084120724bfcac26d46d80e056df" data-requestmappingfromserver="False"></script>
+<!-- End Browser Link -->
+
+<script src="https://localhost:44300/_framework/aspnetcore-browser-refresh.js"></script>
+
+</tbody></table>
+<!-- Модальное окно -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Заголовок модального окна</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-primary">Сохранить изменения</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div></div></div></main></div><live-preview-root></live-preview-root>
+
+
+</body> </html>

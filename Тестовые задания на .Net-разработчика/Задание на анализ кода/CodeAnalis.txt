@@ -1,0 +1,56 @@
+static string Func1(string input, string elementName, string attrName)
+{
+  string[] lines = System.IO.File.ReadAllLines(input);
+  string result = null;
+
+  foreach (var line in lines)
+  {
+    var startElEndex = line.IndexOf(elementName);
+
+    if (startElEndex != -1)
+    {
+      if (line[startElEndex - 1] == '<')
+      {
+        var endElIndex = line.IndexOf('>', startElEndex - 1);
+        var attrStartIndex = line.IndexOf(attrName, startElEndex, endElIndex - startElEndex + 1);
+
+        if (attrStartIndex != -1)
+        {
+          int valueStartIndex = attrStartIndex + attrName.Length + 2;
+
+          while (line[valueStartIndex] != '"')
+          {
+            result += line[valueStartIndex];
+            valueStartIndex++;
+          }
+
+          break;
+        }
+      }
+    }
+  }
+
+  return result;
+}
+
+
+
+1. Непонятное название функции
+2. Переменная input, неверное название, лучше filePath
+3. Нет проверки чтения из файла, возможно что файла по пути не существует
+4. Некоректные название переменных startElEndex, endElIndex, лучше использовать startElementIndex, endElementIndex
+5. Вместо string result лучше использовать stringBuilder
+6. Оператор break убрать, в данном месте использовать return
+7. Слишком большой уровень вложенности условий, лучше использовать оператор continue для перехода к след. иттерации
+8. Не стоит передавать endElIndex - startElEndex + 1, в функцию, лучше положить в переменную
+9. Строка 14, передавать startElEndex, вместо startElEndex-1
+10. Строка 10, не стоит проверять на символы, +2 . Могут стоять пробелы, тогда алгоритм будет работать неправильно
+
+Оптимальный алгоритм:
+1. Получить файл, как xml документ. (XmlDocument), проверить его наличие.
+2. Получить значение узла, с помощью xmlDoc.getElementsByTagName(elementName)
+2.1 Если такого узла нет, возращаем пустую строку
+2.2 Если такой узел есть, запоминаем его
+3. Получаем массив атрибутов нужного узла, с помощью  .getAttributeNode(attrName);
+3.1 Если атрибута нет, возвращаем пустую строку
+3.2 Если атрибут есть, возвращаем его значение, полученное с помощью .getAttributeNode(attrName);

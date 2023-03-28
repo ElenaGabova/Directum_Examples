@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "iG2kfMzPIwwa3cEkpOeoBBhiL1qfHTUJG8JaQ1NLzL4=",
+  "Source": "Directum.WebApplication",
+  "BasePath": "_content/Directum.WebApplication",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

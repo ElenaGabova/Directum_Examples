@@ -1,0 +1,34 @@
+1.	Написать SQL-запрос, который возвращает объем продаж в количественном выражении в разрезе 
+сотрудников за период с 01.10.2013 по 07.10.2013:
+●	Фамилия и имя сотрудника;
+●	Объем продаж сотрудника.
+Данные отсортировать по фамилии и имени сотрудника.
+2.	На основании созданного в первом задании запроса написать SQL-запрос,
+ который возвращает процент объема продаж в разрезе сотрудников и продукции за период с 01.10.2013 по 07.10.2013:
+●	Наименование продукции;
+●	Фамилия и имя сотрудника;
+●	Процент продаж сотрудником данного вида продукции (продажи сотрудника данной продукции/общее число продаж данной продукции).
+В выборку должна попадать продукция, поступившая за период с 07.09.2013 по 07.10.2013.
+Данные отсортировать по наименованию продукции, фамилии и имени сотрудника
+
+SELECT Sellers.Name, Sellers.Surname , SUM(Quantity) 
+FROM Sales 
+INNER JOIN Sellers.ID = Sales.IDSel
+WHERE Sales.Date BETWEEN "01.10.2013T0:00:000" and "07.10.2013T0:00:000"
+GROUP BY Sales.IDSel
+ORDER BY Sellers.Surname + ' ' + Sellers.Name
+
+
+
+DECLARE @sum_quanity FLOAT;
+SELECT  @sum_quanity =count(*) FROM [StorageItems] 
+SELECT  Products.Name,
+	    Sellers.Surname + ' ' + Sellers.Name, 
+	    ROUND(CAST(count(*) as float) / @sum_quanity, 2)
+FROM Sales 
+INNER JOIN Sellers.ID = Sales.IDSel
+INNER JOIN Sellers.IDProd  = Products.ID
+WHERE Sales.Date BETWEEN "01.10.2013T0:00:000" and "07.10.2013T0:00:000"
+GROUP BY Sales.IDSel, Products.ID
+ORDER BY Products.Name,
+		 Sellers.Surname + ' ' + Sellers.Name

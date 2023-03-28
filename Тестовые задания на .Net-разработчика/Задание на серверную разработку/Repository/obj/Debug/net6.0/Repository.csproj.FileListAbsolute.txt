@@ -1,0 +1,17 @@
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\bin\Debug\net6.0\Repository.deps.json
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\bin\Debug\net6.0\Repository.dll
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\bin\Debug\net6.0\Repository.pdb
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\bin\Debug\net6.0\Entity.dll
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\bin\Debug\net6.0\Service.dll
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\bin\Debug\net6.0\Entity.pdb
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\bin\Debug\net6.0\Service.pdb
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\obj\Debug\net6.0\Repository.csproj.AssemblyReference.cache
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\obj\Debug\net6.0\Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\obj\Debug\net6.0\Repository.AssemblyInfoInputs.cache
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\obj\Debug\net6.0\Repository.AssemblyInfo.cs
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\obj\Debug\net6.0\Repository.csproj.CoreCompileInputs.cache
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\obj\Debug\net6.0\Repository.csproj.CopyComplete
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\obj\Debug\net6.0\Repository.dll
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\obj\Debug\net6.0\refint\Repository.dll
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\obj\Debug\net6.0\Repository.pdb
+D:\C#\Projects\ Sinhronization\Directum.RepositoryExample\Repository\obj\Debug\net6.0\ref\Repository.dll

@@ -1,0 +1,16 @@
+D:\C#\Projects\MeetingReminder\MeetingReminder\obj\Debug\net5.0\MeetingReminder.csproj.AssemblyReference.cache
+D:\C#\Projects\MeetingReminder\MeetingReminder\obj\Debug\net5.0\MeetingReminder.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\Projects\MeetingReminder\MeetingReminder\obj\Debug\net5.0\MeetingReminder.AssemblyInfoInputs.cache
+D:\C#\Projects\MeetingReminder\MeetingReminder\obj\Debug\net5.0\MeetingReminder.AssemblyInfo.cs
+D:\C#\Projects\MeetingReminder\MeetingReminder\obj\Debug\net5.0\MeetingReminder.csproj.CoreCompileInputs.cache
+D:\C#\Projects\MeetingReminder\MeetingReminder\bin\Debug\net5.0\MeetingReminder.exe
+D:\C#\Projects\MeetingReminder\MeetingReminder\bin\Debug\net5.0\MeetingReminder.deps.json
+D:\C#\Projects\MeetingReminder\MeetingReminder\bin\Debug\net5.0\MeetingReminder.runtimeconfig.json
+D:\C#\Projects\MeetingReminder\MeetingReminder\bin\Debug\net5.0\MeetingReminder.runtimeconfig.dev.json
+D:\C#\Projects\MeetingReminder\MeetingReminder\bin\Debug\net5.0\MeetingReminder.dll
+D:\C#\Projects\MeetingReminder\MeetingReminder\bin\Debug\net5.0\MeetingReminder.pdb
+D:\C#\Projects\MeetingReminder\MeetingReminder\obj\Debug\net5.0\MeetingReminder.dll
+D:\C#\Projects\MeetingReminder\MeetingReminder\obj\Debug\net5.0\refint\MeetingReminder.dll
+D:\C#\Projects\MeetingReminder\MeetingReminder\obj\Debug\net5.0\MeetingReminder.pdb
+D:\C#\Projects\MeetingReminder\MeetingReminder\obj\Debug\net5.0\MeetingReminder.genruntimeconfig.cache
+D:\C#\Projects\MeetingReminder\MeetingReminder\obj\Debug\net5.0\ref\MeetingReminder.dll
