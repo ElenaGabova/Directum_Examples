@@ -11,6 +11,9 @@
 В выборку должна попадать продукция, поступившая за период с 07.09.2013 по 07.10.2013.
 Данные отсортировать по наименованию продукции, фамилии и имени сотрудника
 
+--Дата начала и дата конца периода выборки
+DECLARE @startDate DATETIME = '2013-10-01 00:00:00.000' 
+DECLARE @endDate   DATETIME = '2013-10-07 00:00:00.000'
 SELECT Sellers.Name, 
        Sellers.Surname, 
        SUM(Quantity) 
@@ -18,26 +21,40 @@ FROM Sales
 INNER JOIN Sellers ON 
       Sellers.ID = Sales.IDSel
 WHERE 
-     Sales.Date BETWEEN '2013-10-01 00:00:00.000' and '2013-10-07 00:00:00.000'
+     Sales.Date BETWEEN @startDate and @endDate 
 GROUP BY Sellers.Name, 
          Sellers.Surname
 ORDER BY Sellers.Name, 
          Sellers.Surname
 
+______________________________________________________________________________________________
+--Дата начала и дата конца периода выборки
+DECLARE @startDate DATETIME = '2013-10-01 00:00:00.000' 
+DECLARE @endDate   DATETIME = '2013-10-07 00:00:00.000'
 
-DECLARE @sum_quanity FLOAT;
-SELECT  @sum_quanity =SUM(Quantity) FROM Sales WHERE Sales.Date BETWEEN '2013-10-01 00:00:00.000' and '2013-10-07 00:00:00.000'
-
+--Выбираем вид продукта, Имя и фамилию продавца, (продажи сотрудника данной продукции/общее число продаж данной продукции).
 SELECT  Products.Name,
-	    Sellers.Surname + ' ' + Sellers.Name, 
-	    ROUND(CAST(SUM(Quantity ) as float) / @sum_quanity, 2)
-FROM Sales 
-INNER JOIN Sellers ON Sellers.ID = Sales.IDSel
+	    Sellers.Surname + ' ' + Sellers.Name,
+		--Если  нет продаж за период, выбираем NULL
+		CASE WHEN SalesProducts.ProductsQuanity IS NULL
+		  THEN NULL
+		ELSE  
+		  ROUND(CAST(SUM(Quantity ) as float) /SalesProducts.ProductsQuanity, 2)
+END 
+FROM Sales
 INNER JOIN Products ON Products.ID = Sales.IDProd
-WHERE Sales.Date BETWEEN '2013-10-01 00:00:00.000' and
-			 '2013-10-07 00:00:00.000'
-
+INNER JOIN Sellers ON Sellers.ID = Sales.IDSel
+--Cсылка на таблицу Sales, с группировкой по виду продукции, возвращаем продажи продукции всеми сотрудниками за период
+INNER JOIN (SELECT  SalesProducts.IDProd,
+					SUM(SalesProducts.Quantity) as ProductsQuanity
+            FROM Sales as SalesProducts
+			WHERE  Date BETWEEN @startDate and @endDate
+			GROUP BY SalesProducts.IDProd)  AS SalesProducts
+		ON SalesProducts.IDProd = Products.Id
+WHERE Sales.Date BETWEEN @startDate and @endDate 
+--Группируем по названию продцкции, продавцу, числу продаж сотрудником за период.
 GROUP BY Products.Name, 
-	 Sellers.Surname + ' ' + Sellers.Name
+		 Sellers.Surname + ' ' + Sellers.Name, 
+		 SalesProducts.ProductsQuanity
 ORDER BY Products.Name,
-	 Sellers.Surname + ' ' + Sellers.Name
+		 Sellers.Surname + ' ' + Sellers.Name
