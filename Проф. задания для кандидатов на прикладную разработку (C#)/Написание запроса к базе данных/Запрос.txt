@@ -46,15 +46,15 @@ INNER JOIN Products ON Products.ID = Sales.IDProd
 INNER JOIN Sellers ON Sellers.ID = Sales.IDSel
 --Cсылка на таблицу Sales, с группировкой по виду продукции, возвращаем продажи продукции всеми сотрудниками за период
 INNER JOIN (SELECT  SalesProducts.IDProd,
-					SUM(SalesProducts.Quantity) as ProductsQuanity
+		    SUM(SalesProducts.Quantity) as ProductsQuanity
             FROM Sales as SalesProducts
-			WHERE  Date BETWEEN @startDate and @endDate
-			GROUP BY SalesProducts.IDProd)  AS SalesProducts
+		WHERE  Date BETWEEN @startDate and @endDate
+		GROUP BY SalesProducts.IDProd)  AS SalesProducts
 		ON SalesProducts.IDProd = Products.Id
 WHERE Sales.Date BETWEEN @startDate and @endDate 
 --Группируем по названию продцкции, продавцу, числу продаж сотрудником за период.
 GROUP BY Products.Name, 
-		 Sellers.Surname + ' ' + Sellers.Name, 
-		 SalesProducts.ProductsQuanity
+	 Sellers.Surname + ' ' + Sellers.Name, 
+	 SalesProducts.ProductsQuanity
 ORDER BY Products.Name,
 		 Sellers.Surname + ' ' + Sellers.Name
