@@ -57,4 +57,4 @@ GROUP BY Products.Name,
 	 Sellers.Surname + ' ' + Sellers.Name, 
 	 SalesProducts.ProductsQuanity
 ORDER BY Products.Name,
-		 Sellers.Surname + ' ' + Sellers.Name
+	 Sellers.Surname + ' ' + Sellers.Name
