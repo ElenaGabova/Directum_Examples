@@ -11,24 +11,33 @@
 В выборку должна попадать продукция, поступившая за период с 07.09.2013 по 07.10.2013.
 Данные отсортировать по наименованию продукции, фамилии и имени сотрудника
 
-SELECT Sellers.Name, Sellers.Surname , SUM(Quantity) 
+SELECT Sellers.Name, 
+       Sellers.Surname, 
+       SUM(Quantity) 
 FROM Sales 
-INNER JOIN Sellers.ID = Sales.IDSel
-WHERE Sales.Date BETWEEN "01.10.2013T0:00:000" and "07.10.2013T0:00:000"
-GROUP BY Sales.IDSel
-ORDER BY Sellers.Surname + ' ' + Sellers.Name
-
+INNER JOIN Sellers ON 
+      Sellers.ID = Sales.IDSel
+WHERE 
+     Sales.Date BETWEEN '2013-10-01 00:00:00.000' and '2013-10-07 00:00:00.000'
+GROUP BY Sellers.Name, 
+         Sellers.Surname
+ORDER BY Sellers.Name, 
+         Sellers.Surname
 
 
 DECLARE @sum_quanity FLOAT;
-SELECT  @sum_quanity =count(*) FROM [StorageItems] 
+SELECT  @sum_quanity =SUM(Quantity) FROM Sales WHERE Sales.Date BETWEEN '2013-10-01 00:00:00.000' and '2013-10-07 00:00:00.000'
+
 SELECT  Products.Name,
 	    Sellers.Surname + ' ' + Sellers.Name, 
-	    ROUND(CAST(count(*) as float) / @sum_quanity, 2)
+	    ROUND(CAST(SUM(Quantity ) as float) / @sum_quanity, 2)
 FROM Sales 
-INNER JOIN Sellers.ID = Sales.IDSel
-INNER JOIN Sellers.IDProd  = Products.ID
-WHERE Sales.Date BETWEEN "01.10.2013T0:00:000" and "07.10.2013T0:00:000"
-GROUP BY Sales.IDSel, Products.ID
+INNER JOIN Sellers ON Sellers.ID = Sales.IDSel
+INNER JOIN Products ON Products.ID = Sales.IDProd
+WHERE Sales.Date BETWEEN '2013-10-01 00:00:00.000' and
+			 '2013-10-07 00:00:00.000'
+
+GROUP BY Products.Name, 
+	 Sellers.Surname + ' ' + Sellers.Name
 ORDER BY Products.Name,
-		 Sellers.Surname + ' ' + Sellers.Name
+	 Sellers.Surname + ' ' + Sellers.Name
